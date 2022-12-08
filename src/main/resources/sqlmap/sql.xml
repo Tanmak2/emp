@@ -14,4 +14,48 @@
 		INNER JOIN dept AS d 
 		ON e.DEPTNO = d.DEPTNO 
 	</select>
+	
+	<select id="selectEmpfindByEmpno" resultType="com.dw.emp.vo.EmpVO">
+		SELECT 
+			ename, 
+			ifnull(sal, 100) AS sal, 
+			ifnull(comm, 0) AS comm 
+		FROM emp 
+		WHERE empno = #{empno}
+	
+	</select>
+	
+	<insert id="insertEmp">
+		INSERT INTO 
+			emp
+				(
+				empno,
+				ename,
+				job,
+				deptno,
+				hiredate
+				) 
+			VALUES
+				(
+				#{empno},
+				#{ename},
+				#{job},
+				#{deptno},
+				#{hiredate}
+				)
+	</insert>
+	
+	<update id="updateEmp">
+		UPDATE emp 
+			SET 
+				ename = #{ename}, 
+				job = #{job}, 
+				deptno = #{deptno} 
+			WHERE empno = #{empno}
+	</update>
+	
+	<delete id="deleteEmp">
+		DELETE FROM emp
+		WHERE empno = #{empno}
+	</delete>
 </mapper>

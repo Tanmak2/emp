@@ -13,4 +13,6 @@ public class EmpVO {
 	private int sal;
 	private String dname;
 	private String loc;
+	private int comm;
+	private int deptno;
 }

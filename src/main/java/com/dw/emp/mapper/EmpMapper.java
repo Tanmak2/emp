@@ -10,4 +10,12 @@ import com.dw.emp.vo.EmpVO;
 public interface EmpMapper {
 
 	List<EmpVO> selectEmp();
+	
+	EmpVO selectEmpfindByEmpno(int empno);
+	
+	int insertEmp(EmpVO vo);
+	
+	int updateEmp(EmpVO vo);
+	
+	int deleteEmp(int empno);
 }
