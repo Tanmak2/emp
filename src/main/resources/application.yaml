@@ -6,4 +6,4 @@ spring:
   password: toor
 
 mybatis:
-   mapper-locations: classpath:/sqlmap/sql.xml
+   mapper-locations: classpath:/sqlmap/sql_*.xml
