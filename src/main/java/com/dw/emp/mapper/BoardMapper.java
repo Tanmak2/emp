@@ -10,4 +10,12 @@ import com.dw.emp.vo.BoardVO;
 public interface BoardMapper {
 	
 	List<BoardVO> selectBoard();
+	
+	public int insertBoard(BoardVO vo);
+	
+	public BoardVO selectBoardFindByBoardNo(int board_no);
+	
+	public int updateBoard(BoardVO vo);
+	
+	public int deleteBoard(int board_no);
 }

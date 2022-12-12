@@ -40,7 +40,7 @@ h1{
 <body>
 	<h1>DW 게시판</h1>
 	<div class="btn_box">
-		<button type="button" onclick="">게시물 작성</button>
+		<button type="button" onclick="goWrite()">게시물 작성</button>
 	</div>
 	<table id="board">
 		<tr>
@@ -56,6 +56,10 @@ h1{
 	integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
 	crossorigin="anonymous"></script>
 <script type="text/javascript">
+
+	function goWrite(){
+		location.href="/write";
+	}
 	callMyAPI();
 	function callMyAPI() {
 		$.ajax({
@@ -66,11 +70,16 @@ h1{
 				console.log(response);
 				console.log(response.board_no);
 				for (var i = 0; i < response.length; i++) {
-					var html = '<tr><td>'+response[i].board_no+'</td><td><a href="#">'+response[i].title+'</a></td><td>'+response[i].writer+'</td><td>'+response[i].create_at.split(" ")[0]+'</td><td>'+response[i].board_count+'</td></tr>'
+					var html = '<tr><td>'+response[i].board_no+'</td><td onclick="detailBoard('+response[i].board_no+')">'+'<a href="#">'+response[i].title+'</a></td><td>'+response[i].writer+'</td><td>'+response[i].create_at.split(" ")[0]+'</td><td>'+response[i].board_count+'</td></tr>'
 					$('#board').append(html);
 				}
 			}
 		});
+	}
+	
+	function detailBoard(board_no){
+		console.log(board_no);
+		location.href = "/board/"+board_no;
 	}
 
 	function getEmp(empno) {
